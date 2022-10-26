@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Iceberg', cursive;
+}
+
+
+/* 3 chosen variable colors that will be distributed for the game. For answer selection 
+(each a color for right and wrong answers) */
+
+:root {
+  --hue-neutral: 213;
+  --hue-wrong: 283;
+  --hue-correct: 190;
+}
+
+body {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 31%, 19%);
+}
+
+
+/* When answer is correct this color will become visible upon the backround selection to match correct answer */
+
+body.correct {
+  --hue: var(--hue-correct);
+}
+
+
+/* When answer is incorrect this color will become visible upon the background selection to match wrong answer */
+
+body.wrong {
+  --hue: var(--hue-wrong);
+}
+
+
+/* Container layout */
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: #63768d;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+
+
+/* top to bottom grid with 4 options to choose from when answering question */
+
+.btn-grid {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  background-color: hsl(var(--hue), 20%, 70%);
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.btn:hover {
+  border-color: #b8f3ff;
+}
+
+
+/* if this button chose is 'correct' then this variable color will display */
+
+.btn.correct {
+  --hue: var(--hue-correct);
+  background-color: hsl(var(--hue), 100%, 80%);
+}
+
+
+/* if this button chose is 'incorrect' then this variable color will display */
+
+.btn.wrong {
+  --hue: var(--hue-wrong);
+  background-color: hsl(var(--hue), 100%, 80%);
+}
+
+
+/* dimensiosn for start and next button*/
+
+.start-btn,
+.next-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+
+/* Layout for buttons*/
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* grid layout for score system */
+
+.score-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* hide selection when it is unnecessary to have visible*/
+
+.hide {
+  display: none;
+}
